@@ -3,6 +3,7 @@
 
 # Except these dotfiles
 !.gitignore
+!README.md
 !alacritty/
 !alacritty/**
 !hypr/
