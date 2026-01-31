@@ -1,0 +1,506 @@
+/* Eldritch Theme Color Variables */
+@define-color eldritch-background        #212337;
+@define-color eldritch-currentline       #323449;
+@define-color eldritch-foreground        #ebfafa;
+@define-color eldritch-comment           #7081d0;
+@define-color eldritch-cyan              #04d1f9;
+@define-color eldritch-green             #37f499;
+@define-color eldritch-orange            #f7c67f;
+@define-color eldritch-pink              #f265b5;
+@define-color eldritch-purple            #a48cf2;
+@define-color eldritch-red               #f16c75;
+@define-color eldritch-yellow            #f1fc79;
+@define-color eldritch-g_dark            #171928;
+@define-color eldritch-bg_highlight      #292e42;
+@define-color eldritch-terminal_black    #414868;
+@define-color eldritch-fg_dark           #ABB4DA;
+@define-color eldritch-fg_gutter         #3b4261;
+@define-color eldritch-dark3             #6473B7;
+@define-color eldritch-dark5             #5866A2;
+@define-color eldritch-visual            #76639e;
+@define-color eldritch-dark_cyan         #10A1BD;
+@define-color eldritch-magenta2          #bf4f8e;
+@define-color eldritch-magenta3          #722f55;
+@define-color eldritch-dark_yellow       #c0c95f;
+@define-color eldritch-dark_green        #33C57F;
+@define-color eldritch-bright_red        #f0313e;
+
+/* Additional color aliases for compatibility */
+@define-color background @eldritch-background;
+@define-color foreground @eldritch-foreground;
+@define-color selection @eldritch-currentline;
+@define-color purple @eldritch-purple;
+@define-color red @eldritch-red;
+@define-color green @eldritch-green;
+@define-color cyan @eldritch-cyan;
+@define-color yellow @eldritch-yellow;
+@define-color orange @eldritch-orange;
+@define-color pink @eldritch-pink;
+@define-color neon-purple @eldritch-purple;
+@define-color neon-pink @eldritch-pink;
+@define-color neon-light-blue @eldritch-cyan;
+@define-color neon-cyan @eldritch-cyan;
+
+* {
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 3px;
+    min-height: 0;
+    margin: 0.2em 0.3em 0.2em 0.3em;
+}
+
+/* The whole bar */
+window#waybar {
+    background-color: transparent;
+    color: @eldritch-foreground;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    border-radius: 0px;
+    margin: 0px 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+    padding: 3px 5px;
+    margin: 3px 5px;
+    border-radius: 20px;
+    color: @eldritch-foreground;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-purple;
+    transition: all 0.4s ease-out;
+    font-size: 13px;
+}
+
+#workspaces button.active {
+    color: @eldritch-foreground;
+    background: @eldritch-currentline;
+    animation-name: blink-workspace;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+#workspaces button:hover {
+    background: @eldritch-currentline;
+}
+
+#workspaces button.urgent {
+    background-color: @eldritch-red;
+    color: @eldritch-foreground;
+    animation-name: blink-workspace;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 10;
+    animation-direction: alternate;
+}
+
+#workspaces button.empty {
+    color: @eldritch-cyan;
+    animation-name: blink-workspace;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 4;
+    animation-direction: alternate;
+}
+
+#workspaces button.occupied {
+    background-color: @eldritch-orange;
+    opacity: 0.7;
+}
+
+@keyframes blink-workspace {
+    to {
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 800;
+    }
+}
+
+#workspaces {
+    background-color: @eldritch-background;
+    border-radius: 20px;
+    border: 0.19em solid @eldritch-purple;
+    padding: 3px 6px;
+    transition: all 0.4s ease-out;
+}
+
+#window {
+    background-color: @eldritch-background;
+    font-size: 15px;
+    font-weight: 800;
+    color: @eldritch-foreground;
+    border-radius: 20px;
+    border: 0.19em solid @eldritch-foreground;
+    padding: 3px 6px;
+    margin: 2px;
+    opacity: 1;
+}
+
+#custom-electricity,
+#custom-cpu-temp,
+#custom-gpu-temp,
+#clock.date,
+#clock,
+#battery,
+#cpu,
+#custom-cpufreq,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#mpd,
+#bluetooth,
+#custom-hyprPicker,
+#custom-power-menu,
+#custom-spotify,
+#custom-weather,
+#custom-weather.severe,
+#custom-weather.sunnyDay,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.default {
+    background-color: @eldritch-background;
+    border-radius: 14px;
+    padding: 5px;
+}
+
+#custom-screenshot_t {
+    background-color: @eldritch-background;
+    border-radius: 14px;
+    padding: 6px;
+}
+
+#clock.date {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: @eldritch-background;
+    border-radius: 14px;
+    padding: 4px 8px;
+}
+
+#custom-gpu-temp,
+#custom-cpu-temp {
+    background-color: @eldritch-background;
+    color: @eldritch-orange;
+    border-radius: 14px;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+#custom-electricity {
+    background-color: @eldritch-background;
+    color: @eldritch-yellow;
+    border-radius: 14px;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+#custom-storage {
+    background-color: @eldritch-background;
+    color: @eldritch-yellow;
+    border-radius: 14px;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+#custom-cpufreq {
+    background-color: @eldritch-background;
+    color: @eldritch-orange;
+    border-radius: 14px;
+    padding: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 5px;
+}
+
+#custom-spotify {
+    background-color: @eldritch-background;
+    border-radius: 14px;
+    padding: 3px 12px;
+}
+
+#tray,
+#systray {
+    background-color: @eldritch-background;
+    border-radius: 20px;
+    border: 0.19em solid @eldritch-cyan;
+    padding: 0px 4px;
+}
+
+/* System Group */
+#system {
+    border-radius: 20px;
+    background-color: @eldritch-background;
+    color: @eldritch-foreground;
+    border: 0.19em solid @eldritch-purple;
+}
+
+#cpu,
+#memory,
+#disk,
+#temperature {
+    border-radius: 20px;
+    padding: 0px 8px;
+    background-color: @eldritch-background;
+    color: @eldritch-foreground;
+}
+
+#cpu {
+    color: @eldritch-red;
+}
+
+#memory {
+    color: @eldritch-yellow;
+}
+
+#temperature.critical { 
+    color: @eldritch-red; 
+    background-color: @eldritch-red;
+}
+
+#custom-power {
+    background-color: @eldritch-background;
+    border-radius: 14px;
+    padding: 6px;
+}
+
+#custom-launcher {
+    background-color: @eldritch-currentline;
+    color: @eldritch-cyan;
+    border-radius: 7.5px;
+    padding: 3px 6px;
+}
+
+#custom-weather.severe {
+    color: @eldritch-red;
+}
+
+#custom-weather.sunnyDay {
+    color: @eldritch-yellow;
+}
+
+#custom-weather.clearNight {
+    color: @eldritch-purple;
+}
+
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight {
+    color: @eldritch-comment;
+}
+
+#custom-weather.rainyDay,
+#custom-weather.rainyNight {
+    color: @eldritch-cyan;
+}
+
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight {
+    color: @eldritch-foreground;
+}
+
+#custom-weather.default {
+    color: @eldritch-fg_dark;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#pulseaudio,
+#wireplumber {
+    color: @eldritch-purple;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-pink;
+    border-radius: 20px;
+    padding: 0px 8px;
+}
+
+#pulseaudio.muted {
+    border: 0.19em solid @eldritch-red;
+}
+
+#backlight {
+    color: @eldritch-cyan;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-cyan;
+    border-radius: 20px;
+    padding: 0px 8px 0px 4px;
+}
+
+#clock {
+    color: @eldritch-foreground;
+}
+
+#battery {
+    color: @eldritch-green;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-green;
+    border-radius: 20px;
+    padding: 0px 8px 0px 4px;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+    color: @eldritch-dark_green;
+}
+
+@keyframes blink-battery {
+    to {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: @eldritch-yellow;
+    animation-name: blink-battery;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+    color: @eldritch-bright_red;
+    animation-name: blink-battery;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @eldritch-g_dark;
+}
+
+#disk {
+    background-color: @eldritch-magenta3;
+}
+
+#bluetooth {
+    color: @eldritch-purple;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-purple;
+    border-radius: 20px;
+    padding: 0px 6px;
+}
+
+#bluetooth.disconnected {
+    color: @eldritch-red;
+    border: 0.19em solid @eldritch-red;
+}
+
+#network {
+    color: @eldritch-pink;
+    background-color: @eldritch-background;
+    border: 0.19em solid @eldritch-pink;
+    border-radius: 20px;
+    padding: 0px 8px;
+}
+
+#network.disconnected {
+    color: @eldritch-red;
+    border: 0.19em solid @eldritch-red;
+}
+
+#custom-media {
+    background-color: @eldritch-green;
+    color: @eldritch-g_dark;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: @eldritch-green;
+}
+
+#custom-media.custom-vlc {
+    background-color: @eldritch-orange;
+}
+
+#temperature {
+    background-color: @eldritch-orange;
+}
+
+#temperature.critical {
+    background-color: @eldritch-red;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @eldritch-red;
+}
+
+#idle_inhibitor {
+    background-color: @eldritch-currentline;
+}
+
+#idle_inhibitor.activated {
+    background-color: @eldritch-foreground;
+    color: @eldritch-background;
+}
+
+#language {
+    background: @eldritch-cyan;
+    color: @eldritch-background;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: @eldritch-green;
+    color: @eldritch-g_dark;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label {
+    padding: 0 0px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}

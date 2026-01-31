@@ -1,0 +1,27 @@
+# Ignore everything
+*
+
+# Except these dotfiles
+!.gitignore
+!alacritty/
+!alacritty/**
+!hypr/
+!hypr/**
+!nvim/
+!nvim/**
+!waybar/
+!waybar/**
+
+# But ignore caches and generated files within them
+**/__pycache__/
+**/*.pyc
+**/node_modules/
+**/.cache/
+**/cache/
+**/*.log
+**/.netrwhist
+**/undo/
+**/swap/
+**/backup/
+**/plugin/packer_compiled.lua
+**/lazy-lock.json
